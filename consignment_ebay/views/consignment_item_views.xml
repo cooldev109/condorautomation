@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Consignment Item Form - Add eBay Button Box -->
+    <record id="view_consignment_item_form_ebay" model="ir.ui.view">
+        <field name="name">consignment.item.form.ebay</field>
+        <field name="model">consignment.item</field>
+        <field name="inherit_id" ref="consignment_core.view_consignment_item_form"/>
+        <field name="arch" type="xml">
+            <!-- Add eBay buttons to button box -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="action_view_ebay_listings"
+                        icon="fa-list" invisible="ebay_listing_count == 0">
+                    <field name="ebay_listing_count" widget="statinfo" string="eBay Listings"/>
+                </button>
+                <button class="oe_stat_button" icon="fa-check-circle"
+                        invisible="not is_on_ebay">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text text-success">Listed on</span>
+                        <span class="o_stat_text text-success">eBay</span>
+                    </div>
+                </button>
+            </xpath>
+
+            <!-- Add eBay action buttons in header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_list_on_ebay" type="object" string="List on eBay"
+                        class="btn-primary" invisible="state not in ['received', 'listed'] or is_on_ebay"/>
+                <button name="action_sync_from_ebay" type="object" string="Sync from eBay"
+                        invisible="not is_on_ebay"/>
+            </xpath>
+
+            <!-- Add eBay fields to notebook -->
+            <xpath expr="//notebook" position="inside">
+                <page name="ebay" string="eBay Integration">
+                    <group>
+                        <group string="eBay Settings">
+                            <field name="is_on_ebay" readonly="1"/>
+                            <field name="ebay_category_id" placeholder="e.g., 11816 for CNC Equipment"/>
+                        </group>
+                        <group string="eBay Status">
+                            <field name="ebay_listing_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="ebay_listing_ids" nolabel="1">
+                            <tree decoration-success="state=='listed'" decoration-info="state=='draft'">
+                                <field name="name"/>
+                                <field name="sku"/>
+                                <field name="listing_id"/>
+                                <field name="price" widget="monetary"/>
+                                <field name="state" widget="badge"/>
+                                <field name="listed_date"/>
+                                <field name="currency_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend Consignment Item Tree - Add eBay indicator -->
+    <record id="view_consignment_item_tree_ebay" model="ir.ui.view">
+        <field name="name">consignment.item.tree.ebay</field>
+        <field name="model">consignment.item</field>
+        <field name="inherit_id" ref="consignment_core.view_consignment_item_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="is_on_ebay" widget="boolean" string="On eBay"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

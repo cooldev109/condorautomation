@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- eBay List Item Wizard Form -->
+    <record id="view_ebay_list_item_wizard_form" model="ir.ui.view">
+        <field name="name">ebay.list.item.wizard.form</field>
+        <field name="model">ebay.list.item.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        <strong>List Item on eBay</strong><br/>
+                        Fill in the details below to create an eBay listing for this consignment item.
+                    </div>
+
+                    <group>
+                        <field name="consignment_item_id" invisible="1"/>
+                    </group>
+
+                    <group>
+                        <group string="Listing Information">
+                            <field name="title" placeholder="Max 80 characters"/>
+                            <field name="category_id" placeholder="e.g., 11816 for CNC Equipment"
+                                   help="Find category IDs at ebay.com/sh/sellhub/create-listing"/>
+                            <field name="condition_id"/>
+                        </group>
+                        <group string="Pricing">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="price" widget="monetary"/>
+                            <field name="quantity"/>
+                        </group>
+                    </group>
+
+                    <group string="Listing Settings">
+                        <group>
+                            <field name="listing_type"/>
+                            <field name="duration"/>
+                        </group>
+                        <group>
+                            <field name="auto_publish"/>
+                        </group>
+                    </group>
+
+                    <group string="Description">
+                        <field name="description" widget="html" nolabel="1"/>
+                    </group>
+
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Note:</strong> Make sure the consignment item has photos uploaded before listing.
+                    </div>
+                </sheet>
+
+                <footer>
+                    <button name="action_create_listing" type="object" string="Create Listing" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

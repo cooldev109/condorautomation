@@ -1,0 +1,50 @@
+/* Condor Logo Styling - Make it bigger (1.3x larger) */
+
+/* All logo images - specific targeting (excluding user avatar) */
+img[src*="logo"],
+img[alt*="Logo"],
+img[alt*="logo"],
+.o_logo img,
+.o_header_logo img,
+.navbar-brand img,
+.o_navbar_logo img,
+.o_menu_brand img,
+a[href="/"] > img {
+    max-height: 104px !important;
+    min-height: 104px !important;
+    height: 104px !important;
+    width: auto !important;
+}
+
+/* Backend header logo */
+.o_main_navbar .o_menu_brand img,
+.o_menu_brand img {
+    max-height: 65px !important;
+    min-height: 65px !important;
+    height: 65px !important;
+    width: auto !important;
+}
+
+/* Company logo in website */
+.o_website_logo img,
+.o_website_logo,
+.website_logo img {
+    max-height: 104px !important;
+    min-height: 104px !important;
+    height: 104px !important;
+    width: auto !important;
+}
+
+/* Target the specific navbar brand link */
+.navbar-brand {
+    height: auto !important;
+}
+
+/* Ensure container doesn't restrict size */
+.o_header_logo,
+.navbar-brand,
+.o_navbar_logo {
+    height: auto !important;
+    max-height: none !important;
+}
+

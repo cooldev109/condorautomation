@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Add Consignment Owner checkbox to Partner Form -->
+        <record id="view_partner_form_consignment" model="ir.ui.view">
+            <field name="name">res.partner.form.consignment</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Add field to the internal notes page -->
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page name="consignment" string="Consignment">
+                        <group>
+                            <field name="is_consignment_owner"/>
+                            <field name="consignment_item_count"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

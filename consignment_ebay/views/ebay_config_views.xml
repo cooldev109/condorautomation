@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- eBay Configuration Form View -->
+    <record id="view_ebay_config_form" model="ir.ui.view">
+        <field name="name">ebay.config.form</field>
+        <field name="model">ebay.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_test_connection" type="object" string="Test Connection" class="oe_highlight"/>
+                    <button name="action_get_oauth_url" type="object" string="Get OAuth URL" class="oe_highlight"/>
+                    <button name="action_refresh_token" type="object" string="Refresh Token"/>
+                    <field name="is_connected" widget="boolean_button" options="{'terminology': {'string_true': 'Connected', 'string_false': 'Not Connected'}}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., eBay Production"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic" string="Basic Information">
+                            <field name="environment" widget="radio"/>
+                            <field name="site_id"/>
+                            <field name="active"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group name="credentials" string="API Credentials">
+                            <field name="app_id" placeholder="Your eBay App ID (Client ID)"/>
+                            <field name="cert_id" password="True" placeholder="Your eBay Cert ID (Client Secret)"/>
+                            <field name="dev_id" placeholder="Your eBay Dev ID (optional)"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="oauth" string="OAuth Tokens">
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Step 1 - Copy this URL into eBay Developer Portal:</strong>
+                                <br/>Go to <em>eBay Developer Portal → Your Keyset → OAuth → User Token → Redirect URI</em> and add the URL below.
+                                <group>
+                                    <field name="redirect_uri" readonly="1" widget="CopyClipboardChar"/>
+                                </group>
+                            </div>
+                            <div class="alert alert-info" role="alert" invisible="access_token">
+                                <strong>Step 2 - Authorize:</strong> Click "Get OAuth URL" above to connect your eBay account.
+                            </div>
+                            <group invisible="not access_token">
+                                <group string="Active Tokens">
+                                    <field name="access_token" readonly="1" password="True"/>
+                                    <field name="refresh_token" readonly="1" password="True"/>
+                                </group>
+                                <group string="Token Info">
+                                    <field name="token_expiry" readonly="1"/>
+                                    <field name="last_sync_date" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="defaults" string="Default Settings">
+                            <group>
+                                <group string="Listing Defaults">
+                                    <field name="default_listing_duration"/>
+                                    <field name="default_condition_id"/>
+                                    <field name="default_listing_type"/>
+                                    <field name="default_dispatch_time"/>
+                                </group>
+                                <group string="Categories">
+                                    <field name="default_category_id" placeholder="e.g., 11804 for Industrial Equipment"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="shipping" string="Shipping &amp; Payment">
+                            <group>
+                                <group string="Shipping">
+                                    <field name="default_shipping_service"/>
+                                    <field name="default_shipping_cost"/>
+                                </group>
+                                <group string="Payment">
+                                    <field name="paypal_email"/>
+                                    <field name="accept_paypal"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="returns" string="Returns Policy">
+                            <group>
+                                <group>
+                                    <field name="returns_accepted"/>
+                                    <field name="return_period" invisible="not returns_accepted"/>
+                                </group>
+                                <group>
+                                    <field name="refund_option" invisible="not returns_accepted"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- eBay Configuration Tree View -->
+    <record id="view_ebay_config_tree" model="ir.ui.view">
+        <field name="name">ebay.config.tree</field>
+        <field name="model">ebay.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="environment"/>
+                <field name="site_id"/>
+                <field name="is_connected" widget="boolean"/>
+                <field name="last_sync_date"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- eBay Configuration Action -->
+    <record id="action_ebay_config" model="ir.actions.act_window">
+        <field name="name">eBay Configuration</field>
+        <field name="res_model">ebay.config</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure eBay Integration
+            </p>
+            <p>
+                Set up your eBay API credentials to start listing items on eBay.
+            </p>
+        </field>
+    </record>
+</odoo>

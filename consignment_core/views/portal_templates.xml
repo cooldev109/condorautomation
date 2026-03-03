@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add Consignment menu items to portal -->
+    <template id="portal_my_home_menu_consignment" name="Portal layout : consignment menu entries" inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'consignment'" t-attf-class="breadcrumb-item #{'active ' if not item else ''}">
+                <a t-if="item" t-attf-href="/my/consignment?{{ keep_query() }}">My Items</a>
+                <t t-else="">My Items</t>
+            </li>
+            <li t-if="page_name == 'consignment' and item" class="breadcrumb-item active">
+                <t t-esc="item.name"/>
+            </li>
+            <li t-if="page_name == 'wallet'" class="breadcrumb-item active">
+                My Wallet
+            </li>
+            <li t-if="page_name == 'transactions'" class="breadcrumb-item active">
+                Transactions
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_consignment" name="Show Consignments" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Items</t>
+                <t t-set="url" t-value="'/my/consignment'"/>
+                <t t-set="placeholder_count" t-value="'consignment_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Wallet</t>
+                <t t-set="url" t-value="'/my/wallet'"/>
+                <t t-set="placeholder_count" t-value="'wallet_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Portal: My Consignment Items -->
+    <template id="portal_my_consignment_items" name="My Consignment Items">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Items</t>
+            </t>
+
+            <t t-if="not items">
+                <div class="alert alert-info" role="alert">
+                    You don't have any consignment items yet.
+                </div>
+            </t>
+            <t t-if="items" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Reference</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Listed Price</th>
+                        <th>Sale Price</th>
+                        <th>Commission Rate</th>
+                        <th class="text-end">Net Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="items" t-as="item">
+                        <tr>
+                            <td>
+                                <a t-att-href="'/my/consignment/%s' % item.id">
+                                    <t t-esc="item.name"/>
+                                </a>
+                            </td>
+                            <td><t t-esc="item.description or '-'"/></td>
+                            <td>
+                                <span t-if="item.state == 'draft'" class="badge bg-secondary">Draft</span>
+                                <span t-elif="item.state == 'received'" class="badge bg-info">Received</span>
+                                <span t-elif="item.state == 'listed'" class="badge bg-primary">Listed</span>
+                                <span t-elif="item.state == 'sold'" class="badge bg-warning">Sold</span>
+                                <span t-elif="item.state == 'paid'" class="badge bg-success">Paid</span>
+                                <span t-elif="item.state == 'returned'" class="badge bg-dark">Returned</span>
+                            </td>
+                            <td>
+                                <span t-if="item.listing_price" t-field="item.listing_price" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                <span t-else="">-</span>
+                            </td>
+                            <td>
+                                <span t-if="item.sale_price" t-field="item.sale_price" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                <span t-else="">-</span>
+                            </td>
+                            <td>
+                                <span t-if="item.commission_rate"><t t-esc="item.commission_rate"/>%</span>
+                                <span t-else="">-</span>
+                            </td>
+                            <td class="text-end">
+                                <span t-if="item.net_amount" t-field="item.net_amount" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                <span t-else="">-</span>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!-- Portal: Consignment Item Detail -->
+    <template id="portal_consignment_item_detail" name="Consignment Item Detail">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <span t-esc="item.name"/>
+                        <span t-if="item.state == 'draft'" class="badge bg-secondary ms-2">Draft</span>
+                        <span t-elif="item.state == 'received'" class="badge bg-info ms-2">Received</span>
+                        <span t-elif="item.state == 'listed'" class="badge bg-primary ms-2">Listed</span>
+                        <span t-elif="item.state == 'sold'" class="badge bg-warning ms-2">Sold</span>
+                        <span t-elif="item.state == 'paid'" class="badge bg-success ms-2">Paid</span>
+                        <span t-elif="item.state == 'returned'" class="badge bg-dark ms-2">Returned</span>
+                    </h5>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <h6>Item Information</h6>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Reference:</strong></div>
+                                <div class="col-7"><t t-esc="item.name"/></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Serial Number:</strong></div>
+                                <div class="col-7"><t t-esc="item.serial_number or '-'"/></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Description:</strong></div>
+                                <div class="col-7"><t t-esc="item.description or '-'"/></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Condition:</strong></div>
+                                <div class="col-7">
+                                    <span t-if="item.condition == 'new'">New</span>
+                                    <span t-elif="item.condition == 'like_new'">Like New</span>
+                                    <span t-elif="item.condition == 'good'">Good</span>
+                                    <span t-elif="item.condition == 'fair'">Fair</span>
+                                    <span t-elif="item.condition == 'poor'">Poor</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h6>Financial Information</h6>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Listed Price:</strong></div>
+                                <div class="col-7">
+                                    <span t-if="item.listing_price" t-field="item.listing_price" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                    <span t-else="">-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Sale Price:</strong></div>
+                                <div class="col-7">
+                                    <span t-if="item.sale_price" t-field="item.sale_price" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                    <span t-else="">-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Commission Rate:</strong></div>
+                                <div class="col-7">
+                                    <span t-if="item.commission_rate"><t t-esc="item.commission_rate"/>%</span>
+                                    <span t-else="">-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Commission Amount:</strong></div>
+                                <div class="col-7">
+                                    <span t-if="item.commission_amount" t-field="item.commission_amount" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                    <span t-else="">-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5"><strong>Net Amount:</strong></div>
+                                <div class="col-7">
+                                    <strong>
+                                        <span t-if="item.net_amount" t-field="item.net_amount" t-options='{"widget": "monetary", "display_currency": item.currency_id}'/>
+                                        <span t-else="">-</span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Images -->
+                    <div t-if="item.image_ids" class="row">
+                        <div class="col-12">
+                            <h6>Images</h6>
+                            <div class="row">
+                                <t t-foreach="item.image_ids" t-as="img">
+                                    <div class="col-6 col-md-3 mb-3">
+                                        <img t-att-src="'/web/image/consignment.image/%s/image_medium' % img.id" class="img-fluid rounded" alt="Item Image"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div t-if="item.notes" class="row mt-3">
+                        <div class="col-12">
+                            <h6>Notes</h6>
+                            <p t-field="item.notes"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Portal: My Wallet -->
+    <template id="portal_my_wallet" name="My Wallet">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h3>My Wallet</h3>
+                    </div>
+                </div>
+
+                <!-- Wallet Summary -->
+                <div class="row mb-4">
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card border-primary">
+                            <div class="card-body text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">Current Balance</h6>
+                                <h3 class="card-title text-primary">
+                                    <span t-field="wallet.balance" t-options='{"widget": "monetary", "display_currency": wallet.currency_id}'/>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">Pending Commission</h6>
+                                <h3 class="card-title text-success">
+                                    <span t-field="wallet.pending_commission" t-options='{"widget": "monetary", "display_currency": wallet.currency_id}'/>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card border-info">
+                            <div class="card-body text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">Total Items</h6>
+                                <h3 class="card-title text-info">
+                                    <t t-esc="wallet.item_count"/>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Recent Transactions</h5>
+                                <a href="/my/transactions" class="btn btn-sm btn-primary">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <t t-if="not transactions">
+                                    <p class="text-muted">No transactions yet.</p>
+                                </t>
+                                <t t-else="">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Reference</th>
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                                <th class="text-end">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="transactions[:10]" t-as="txn">
+                                                <tr>
+                                                    <td><span t-field="txn.create_date" t-options='{"widget": "date"}'/></td>
+                                                    <td><t t-esc="txn.name"/></td>
+                                                    <td>
+                                                        <span t-if="txn.transaction_type == 'commission'" class="badge bg-success">Commission</span>
+                                                        <span t-elif="txn.transaction_type == 'payout'" class="badge bg-primary">Payout</span>
+                                                        <span t-elif="txn.transaction_type == 'adjustment_credit'" class="badge bg-info">Credit Adj.</span>
+                                                        <span t-elif="txn.transaction_type == 'adjustment_debit'" class="badge bg-warning">Debit Adj.</span>
+                                                    </td>
+                                                    <td><t t-esc="txn.description or '-'"/></td>
+                                                    <td class="text-end">
+                                                        <span t-if="txn.transaction_type in ['commission', 'adjustment_credit']" class="text-success">
+                                                            +<span t-field="txn.amount" t-options='{"widget": "monetary", "display_currency": txn.currency_id}'/>
+                                                        </span>
+                                                        <span t-else="" class="text-danger">
+                                                            -<span t-field="txn.amount" t-options='{"widget": "monetary", "display_currency": txn.currency_id}'/>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Portal: No Wallet -->
+    <template id="portal_no_wallet" name="No Wallet">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">No Wallet Yet</h4>
+                    <p>You don't have a wallet yet. A wallet will be automatically created when you have your first consignment item.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Portal: My Transactions -->
+    <template id="portal_my_transactions" name="My Transactions">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Transaction History</t>
+            </t>
+
+            <div class="mb-3">
+                <a href="/my/wallet" class="btn btn-secondary btn-sm">Back to Wallet</a>
+            </div>
+
+            <t t-if="not transactions">
+                <div class="alert alert-info" role="alert">
+                    No transactions yet.
+                </div>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Date</th>
+                        <th>Reference</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Related Item</th>
+                        <th class="text-end">Amount</th>
+                        <th class="text-end">Balance After</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="transactions" t-as="txn">
+                        <tr>
+                            <td><span t-field="txn.create_date" t-options='{"widget": "datetime"}'/></td>
+                            <td><t t-esc="txn.name"/></td>
+                            <td>
+                                <span t-if="txn.transaction_type == 'commission'" class="badge bg-success">Commission</span>
+                                <span t-elif="txn.transaction_type == 'payout'" class="badge bg-primary">Payout</span>
+                                <span t-elif="txn.transaction_type == 'adjustment_credit'" class="badge bg-info">Credit Adj.</span>
+                                <span t-elif="txn.transaction_type == 'adjustment_debit'" class="badge bg-warning">Debit Adj.</span>
+                            </td>
+                            <td><t t-esc="txn.description or '-'"/></td>
+                            <td>
+                                <a t-if="txn.consignment_item_id" t-att-href="'/my/consignment/%s' % txn.consignment_item_id.id">
+                                    <t t-esc="txn.consignment_item_id.name"/>
+                                </a>
+                                <span t-else="">-</span>
+                            </td>
+                            <td class="text-end">
+                                <span t-if="txn.transaction_type in ['commission', 'adjustment_credit']" class="text-success">
+                                    +<span t-field="txn.amount" t-options='{"widget": "monetary", "display_currency": txn.currency_id}'/>
+                                </span>
+                                <span t-else="" class="text-danger">
+                                    -<span t-field="txn.amount" t-options='{"widget": "monetary", "display_currency": txn.currency_id}'/>
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="txn.wallet_balance_after" t-options='{"widget": "monetary", "display_currency": txn.currency_id}'/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+</odoo>

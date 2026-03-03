@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Base Layout Template -->
+    <template id="layout" name="Base Layout">
+        <t t-call="website.layout">
+            <t t-set="pageName" t-value="'consignment_website'"/>
+            <!-- Remove default Odoo header -->
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <!-- Header/Navigation -->
+            <header class="ca-header">
+                <nav class="ca-nav">
+                    <div class="ca-logo">
+                        <a href="/">
+                            <img src="/consignment_core/static/src/img/condor_logo.jpg" alt="CondorAutomation"/>
+                        </a>
+                    </div>
+
+                    <div class="ca-nav-center">
+                        <a href="/" class="ca-nav-link">Home</a>
+                        <a href="/why-choose-us" class="ca-nav-link">Why Choose Us</a>
+                        <a href="/services" class="ca-nav-link">Services</a>
+                        <a href="/about" class="ca-nav-link">About Us</a>
+                        <a href="/contact" class="ca-nav-link">Contact</a>
+                    </div>
+
+                    <div class="ca-nav-right" style="display: flex; gap: 1.5rem; align-items: center;">
+                        <!-- Language Dropdown -->
+                        <div class="ca-lang-dropdown">
+                            <button class="ca-lang-toggle-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                                <span class="ca-lang-current">English</span>
+                                <svg class="ca-lang-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            <div class="ca-lang-dropdown-menu">
+                                <a href="?lang=es_ES" class="ca-lang-option" data-lang="es" data-lang-text="Español">Español</a>
+                                <a href="?lang=en_US" class="ca-lang-option" data-lang="en" data-lang-text="English">English</a>
+                            </div>
+                        </div>
+
+                        <a href="/contact" class="ca-btn ca-btn-urgent">IT'S URGENT</a>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Page Content -->
+            <main>
+                <t t-out="0"/>
+            </main>
+
+            <!-- Footer -->
+            <footer class="ca-footer">
+                <div class="ca-container">
+                    <div class="ca-footer-content">
+                        <div>
+                            <h4>CondorAutomation</h4>
+                            <p>Industrial machinery consignment platform.</p>
+                            <p>Connecting buyers with equipment owners through transparent, reliable service.</p>
+                        </div>
+                        <div>
+                            <h4>Quick Links</h4>
+                            <p><a href="/">Home</a></p>
+                            <p><a href="/why-choose-us">Why Choose Us</a></p>
+                            <p><a href="/services">Services</a></p>
+                        </div>
+                        <div>
+                            <h4>Company</h4>
+                            <p><a href="/about">About Us</a></p>
+                            <p><a href="/contact">Contact</a></p>
+                        </div>
+                        <div>
+                            <h4>Contact</h4>
+                            <p>Email: info@condorautomation.com</p>
+                            <p>Support available 24/7</p>
+                        </div>
+                    </div>
+                    <div class="ca-footer-bottom">
+                        <p>© 2026 CondorAutomation. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </t>
+    </template>
+</odoo>

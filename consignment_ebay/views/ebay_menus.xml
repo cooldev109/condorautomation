@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- eBay Root Menu -->
+    <menuitem id="menu_ebay_root"
+              name="eBay"
+              parent="consignment_core.menu_consignment_root"
+              sequence="50"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_ebay_config"
+              name="eBay Configuration"
+              parent="menu_ebay_root"
+              action="action_ebay_config"
+              sequence="100"/>
+
+    <!-- Listings Menu -->
+    <menuitem id="menu_ebay_listings"
+              name="Listings"
+              parent="menu_ebay_root"
+              action="action_ebay_listing"
+              sequence="10"/>
+
+    <!-- Orders Menu -->
+    <menuitem id="menu_ebay_orders"
+              name="Orders"
+              parent="menu_ebay_root"
+              action="action_ebay_order"
+              sequence="20"/>
+
+</odoo>

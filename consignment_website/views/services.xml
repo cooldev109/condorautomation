@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="services" name="Services">
+        <t t-call="consignment_website.layout">
+            <!-- Hero Section -->
+            <section class="ca-hero ca-hero-small">
+                <div class="ca-container">
+                    <h1 class="ca-hero-title">Our Services</h1>
+                    <p class="ca-hero-subtitle">Comprehensive consignment solutions for industrial machinery</p>
+                </div>
+            </section>
+
+            <!-- Introduction Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-intro-text">
+                        <p>At CondorAutomation, we provide end-to-end consignment services designed to maximize the value of your industrial machinery. Our expert team handles every aspect of the sales process, allowing you to focus on your core business while we find the right buyers for your equipment.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Grid -->
+            <section class="ca-section ca-section-services">
+                <div class="ca-container">
+                    <div class="ca-services-grid">
+                        <!-- Service 1: Equipment Appraisal -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&amp;h=400&amp;fit=crop" alt="Equipment Appraisal" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Professional valuation of your industrial machinery based on current market conditions, equipment specifications, and condition assessment.</p>
+                                    <ul class="ca-service-features">
+                                        <li>Market-based pricing analysis</li>
+                                        <li>Comprehensive condition reports</li>
+                                        <li>Competitive positioning strategy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Equipment Appraisal</h3>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: Listing & Marketing -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&amp;h=400&amp;fit=crop" alt="Listing &amp; Marketing" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Professional photography, detailed technical specifications, and multi-channel marketing to reach qualified buyers worldwide.</p>
+                                    <ul class="ca-service-features">
+                                        <li>High-quality equipment photography</li>
+                                        <li>Technical documentation preparation</li>
+                                        <li>Multi-platform promotion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Listing &amp; Marketing</h3>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: Buyer Verification -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&amp;h=400&amp;fit=crop" alt="Buyer Verification" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Thorough screening and qualification of potential buyers to ensure secure, legitimate transactions with serious purchasers.</p>
+                                    <ul class="ca-service-features">
+                                        <li>Financial capability assessment</li>
+                                        <li>Business background verification</li>
+                                        <li>Reference checking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Buyer Verification</h3>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: Negotiation Support -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&amp;h=400&amp;fit=crop" alt="Negotiation Support" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Expert negotiators handle all buyer communications and price discussions to secure the best possible terms for your equipment.</p>
+                                    <ul class="ca-service-features">
+                                        <li>Professional price negotiations</li>
+                                        <li>Terms and conditions management</li>
+                                        <li>Multiple offer coordination</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Negotiation Support</h3>
+                            </div>
+                        </div>
+
+                        <!-- Service 5: Transaction Management -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&amp;h=400&amp;fit=crop" alt="Transaction Management" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Secure payment processing, legal documentation, and escrow services to protect both parties throughout the transaction.</p>
+                                    <ul class="ca-service-features">
+                                        <li>Secure payment processing</li>
+                                        <li>Legal documentation handling</li>
+                                        <li>Escrow and fund management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Transaction Management</h3>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: Logistics Coordination -->
+                        <div class="ca-service-card ca-service-card-hover">
+                            <div class="ca-service-hover-area">
+                                <div class="ca-service-image">
+                                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&amp;h=400&amp;fit=crop" alt="Logistics Coordination" class="ca-service-photo"/>
+                                </div>
+                                <div class="ca-service-content">
+                                    <p>Complete shipping and transportation arrangements, including specialized heavy equipment logistics and international delivery.</p>
+                                    <ul class="ca-service-features">
+                                        <li>Heavy equipment transportation</li>
+                                        <li>International shipping coordination</li>
+                                        <li>Insurance and tracking services</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ca-service-title-fixed">
+                                <h3>Logistics Coordination</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Process Section -->
+            <section class="ca-section ca-service-process-section">
+                <div class="ca-container">
+                    <div class="ca-section-header">
+                        <h2>Our Service Process</h2>
+                        <p>A streamlined approach to selling your industrial machinery</p>
+                    </div>
+
+                    <div class="ca-service-process-steps">
+                        <div class="ca-service-process-step">
+                            <div class="ca-service-process-number">1</div>
+                            <h4>Initial Consultation</h4>
+                            <p>We discuss your equipment, timeline, and expectations to create a customized sales strategy.</p>
+                        </div>
+                        <div class="ca-service-process-step">
+                            <div class="ca-service-process-number">2</div>
+                            <h4>Professional Appraisal</h4>
+                            <p>Our experts evaluate your machinery and determine optimal pricing based on market analysis.</p>
+                        </div>
+                        <div class="ca-service-process-step">
+                            <div class="ca-service-process-number">3</div>
+                            <h4>Marketing Launch</h4>
+                            <p>We create professional listings and promote your equipment across multiple channels.</p>
+                        </div>
+                        <div class="ca-service-process-step">
+                            <div class="ca-service-process-number">4</div>
+                            <h4>Sale Completion</h4>
+                            <p>Handle negotiations, finalize transaction, and coordinate delivery to the buyer.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-cta-box">
+                        <h2>Ready to Sell Your Equipment?</h2>
+                        <p>Let our expert team handle the entire consignment process for you. Get started with a free consultation today.</p>
+                        <div class="ca-cta-buttons">
+                            <a href="/contact" class="ca-btn ca-btn-primary ca-btn-large">Get Free Consultation</a>
+                            <a href="/about" class="ca-btn ca-btn-secondary ca-btn-large">Learn About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

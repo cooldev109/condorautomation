@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- eBay Listing Form View -->
+    <record id="view_ebay_listing_form" model="ir.ui.view">
+        <field name="name">ebay.listing.form</field>
+        <field name="model">ebay.listing</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_create_inventory_item" type="object" string="Create on eBay"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_publish_to_ebay" type="object" string="Publish to eBay"
+                            class="oe_highlight" invisible="state != 'draft' and not offer_id"/>
+                    <button name="action_end_listing" type="object" string="End Listing"
+                            invisible="state != 'listed'"/>
+                    <button name="action_view_on_ebay" type="object" string="View on eBay"
+                            class="btn-primary" invisible="not ebay_url"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,listed,sold"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_on_ebay"
+                                icon="fa-external-link" invisible="not ebay_url">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">View on</span>
+                                <span class="o_stat_text">eBay</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-eye">
+                            <field name="view_count" widget="statinfo" string="Views"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-star">
+                            <field name="watcher_count" widget="statinfo" string="Watchers"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="eBay Listing Title (max 80 characters)"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group name="main" string="Main Information">
+                            <field name="consignment_item_id" options="{'no_create': True}"/>
+                            <field name="product_id" readonly="1"/>
+                            <field name="owner_id" readonly="1"/>
+                            <field name="sku" readonly="1"/>
+                        </group>
+                        <group name="ebay_ids" string="eBay Identifiers">
+                            <field name="offer_id" readonly="1"/>
+                            <field name="listing_id" readonly="1"/>
+                            <field name="ebay_url" widget="url" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="details" string="Listing Details">
+                            <group>
+                                <group>
+                                    <field name="category_id"/>
+                                    <field name="condition_id"/>
+                                    <field name="listing_type"/>
+                                    <field name="duration"/>
+                                </group>
+                                <group>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="price"/>
+                                    <field name="quantity"/>
+                                </group>
+                            </group>
+                            <group string="Description">
+                                <field name="description" widget="html" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page name="dates" string="Dates &amp; Status">
+                            <group>
+                                <group>
+                                    <field name="listed_date" readonly="1"/>
+                                    <field name="sold_date" readonly="1"/>
+                                    <field name="ended_date" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </group>
+                            </group>
+                            <group string="Error Information" invisible="state != 'error'">
+                                <field name="error_message" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- eBay Listing Tree View -->
+    <record id="view_ebay_listing_tree" model="ir.ui.view">
+        <field name="name">ebay.listing.tree</field>
+        <field name="model">ebay.listing</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state=='listed'" decoration-info="state=='draft'"
+                  decoration-muted="state=='ended'" decoration-danger="state=='error'">
+                <field name="name"/>
+                <field name="consignment_item_id"/>
+                <field name="owner_id"/>
+                <field name="sku"/>
+                <field name="listing_id"/>
+                <field name="price" widget="monetary"/>
+                <field name="quantity"/>
+                <field name="state" widget="badge" decoration-success="state=='listed'"
+                       decoration-info="state=='draft'" decoration-danger="state=='error'"/>
+                <field name="listed_date"/>
+                <field name="view_count"/>
+                <field name="watcher_count"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- eBay Listing Search View -->
+    <record id="view_ebay_listing_search" model="ir.ui.view">
+        <field name="name">ebay.listing.search</field>
+        <field name="model">ebay.listing</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="sku"/>
+                <field name="listing_id"/>
+                <field name="consignment_item_id"/>
+                <field name="owner_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="listed" string="Listed" domain="[('state', '=', 'listed')]"/>
+                <filter name="sold" string="Sold" domain="[('state', '=', 'sold')]"/>
+                <filter name="error" string="Error" domain="[('state', '=', 'error')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+                    <filter name="group_listed_date" string="Listed Date" context="{'group_by': 'listed_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- eBay Listing Action -->
+    <record id="action_ebay_listing" model="ir.actions.act_window">
+        <field name="name">eBay Listings</field>
+        <field name="res_model">ebay.listing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_ebay_listing_search"/>
+        <field name="context">{'search_default_listed': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first eBay listing
+            </p>
+            <p>
+                List consignment items on eBay to reach millions of potential buyers.
+            </p>
+        </field>
+    </record>
+</odoo>

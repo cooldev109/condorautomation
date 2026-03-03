@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="why_choose_us" name="Why Choose Us">
+        <t t-call="consignment_website.layout">
+            <!-- Hero Section -->
+            <section class="ca-hero ca-hero-small">
+                <div class="ca-container">
+                    <h1 class="ca-hero-title">Why Choose CondorAutomation</h1>
+                    <p class="ca-hero-subtitle">The trusted partner for industrial machinery consignment</p>
+                </div>
+            </section>
+
+            <!-- Key Benefits Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-section-header">
+                        <h2>What Sets Us Apart</h2>
+                        <p>Experience the difference with our professional consignment services</p>
+                    </div>
+
+                    <div class="ca-benefits-grid">
+                        <!-- Benefit 1: Expertise -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&amp;h=400&amp;fit=crop" alt="Industry Expertise" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Industry Expertise</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Industry Expertise</h3>
+                                <p>Decades of experience in industrial machinery with deep market knowledge and technical understanding.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 2: Transparent -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&amp;h=400&amp;fit=crop" alt="Complete Transparency" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Complete Transparency</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Complete Transparency</h3>
+                                <p>Clear pricing structure with no hidden fees, straightforward terms, and honest appraisals.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 3: Network -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&amp;h=400&amp;fit=crop" alt="Global Network" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Global Network</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Global Network</h3>
+                                <p>Access to worldwide buyers through our extensive industry connections and marketing channels.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 4: Speed -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&amp;h=400&amp;fit=crop" alt="Fast Turnaround" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Fast Turnaround</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Fast Turnaround</h3>
+                                <p>Efficient processes and active buyer network ensure quick sales and faster returns on your assets.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 5: Professional Service -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&amp;h=400&amp;fit=crop" alt="Dedicated Support" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Dedicated Support</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Dedicated Support</h3>
+                                <p>Expert team providing personalized service from initial appraisal through final sale completion.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 6: Security -->
+                        <div class="ca-benefit-card ca-service-card-hover">
+                            <div class="ca-service-image">
+                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&amp;h=400&amp;fit=crop" alt="Secure Transactions" class="ca-service-photo"/>
+                                <h3 class="ca-service-title-overlay">Secure Transactions</h3>
+                            </div>
+                            <div class="ca-service-content">
+                                <h3>Secure Transactions</h3>
+                                <p>Protected payments, verified buyers, and comprehensive insurance options for peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="ca-section ca-stats-section">
+                <div class="ca-container">
+                    <div class="ca-stats-grid">
+                        <div class="ca-stat-item">
+                            <div class="ca-stat-number">15+</div>
+                            <div class="ca-stat-label">Years Experience</div>
+                        </div>
+                        <div class="ca-stat-item">
+                            <div class="ca-stat-number">1000+</div>
+                            <div class="ca-stat-label">Machines Sold</div>
+                        </div>
+                        <div class="ca-stat-item">
+                            <div class="ca-stat-number">98%</div>
+                            <div class="ca-stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="ca-stat-item">
+                            <div class="ca-stat-number">50+</div>
+                            <div class="ca-stat-label">Countries Reached</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-cta-box">
+                        <h2>Ready to Get Started?</h2>
+                        <p>Join hundreds of satisfied equipment owners who trust us with their machinery consignment.</p>
+                        <div class="ca-cta-buttons">
+                            <a href="/contact" class="ca-btn ca-btn-primary ca-btn-large">Contact Us Today</a>
+                            <a href="/services" class="ca-btn ca-btn-secondary ca-btn-large">View Our Services</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

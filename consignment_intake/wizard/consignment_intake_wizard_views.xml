@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Intake Wizard Form View -->
+    <record id="view_consignment_intake_wizard_form" model="ir.ui.view">
+        <field name="name">consignment.intake.wizard.form</field>
+        <field name="model">consignment.intake.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Quick Consignment Intake">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Quick Consignment Intake</h1>
+                        <p>Enter multiple consignment items for a single owner quickly</p>
+                    </div>
+
+                    <group>
+                        <group name="customer_info">
+                            <field name="owner_id" options="{'no_create': False, 'no_open': True}"/>
+                            <field name="intake_date"/>
+                            <field name="commission_rate"/>
+                        </group>
+                        <group name="location_info">
+                            <field name="warehouse_id" options="{'no_create': True}"/>
+                            <field name="location_id" options="{'no_create': True}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group name="summary_info">
+                            <label for="total_items" string="Summary"/>
+                            <div>
+                                <field name="total_items" class="oe_inline"/> items,
+                                Total Expected Value: <field name="total_expected_value" class="oe_inline" widget="monetary"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Items" name="items">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom" create="1" delete="1">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="serial_number" optional="show"/>
+                                    <field name="description" required="1"/>
+                                    <field name="condition"/>
+                                    <field name="expected_price"/>
+                                    <field name="listing_price"/>
+                                    <field name="commission_rate"/>
+                                    <field name="location_id" optional="hide" options="{'no_create': True}"/>
+                                    <field name="notes" optional="hide"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="action_create_items" string="Create &amp; Receive All Items"
+                            type="object" class="btn-primary"
+                            data-hotkey="s"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard Action -->
+    <record id="action_consignment_intake_wizard" model="ir.actions.act_window">
+        <field name="name">Quick Intake</field>
+        <field name="res_model">consignment.intake.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="consignment_core.model_consignment_item"/>
+        <field name="binding_view_types">form,list</field>
+    </record>
+
+</odoo>

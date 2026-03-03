@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- eBay Order Form View -->
+    <record id="view_ebay_order_form" model="ir.ui.view">
+        <field name="name">ebay.order.form</field>
+        <field name="model">ebay.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_import_to_odoo" type="object" string="Import to Odoo"
+                            class="oe_highlight" invisible="imported"/>
+                    <field name="status" widget="statusbar" statusbar_visible="pending,paid,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_import_to_odoo"
+                                icon="fa-check-circle" invisible="not imported">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Imported</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group name="ebay_info" string="eBay Information">
+                            <field name="ebay_order_id" readonly="1"/>
+                            <field name="ebay_listing_id"/>
+                            <field name="consignment_item_id" readonly="1"/>
+                            <field name="order_date" readonly="1"/>
+                        </group>
+                        <group name="buyer_info" string="Buyer Information">
+                            <field name="buyer_username" readonly="1"/>
+                            <field name="buyer_email" readonly="1" widget="email"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group name="pricing" string="Pricing">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="total_amount" widget="monetary" readonly="1"/>
+                        </group>
+                        <group name="odoo_integration" string="Odoo Integration">
+                            <field name="sale_order_id" readonly="1"/>
+                            <field name="imported" readonly="1"/>
+                            <field name="payment_date" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- eBay Order Tree View -->
+    <record id="view_ebay_order_tree" model="ir.ui.view">
+        <field name="name">ebay.order.tree</field>
+        <field name="model">ebay.order</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="imported==True" decoration-info="imported==False">
+                <field name="name"/>
+                <field name="ebay_order_id"/>
+                <field name="buyer_username"/>
+                <field name="consignment_item_id"/>
+                <field name="total_amount" widget="monetary"/>
+                <field name="order_date"/>
+                <field name="status" widget="badge" decoration-success="status=='completed'"
+                       decoration-info="status=='pending'" decoration-warning="status=='paid'"/>
+                <field name="imported" widget="boolean"/>
+                <field name="sale_order_id"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- eBay Order Search View -->
+    <record id="view_ebay_order_search" model="ir.ui.view">
+        <field name="name">ebay.order.search</field>
+        <field name="model">ebay.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="ebay_order_id"/>
+                <field name="buyer_username"/>
+                <field name="buyer_email"/>
+                <field name="consignment_item_id"/>
+                <separator/>
+                <filter name="not_imported" string="Not Imported" domain="[('imported', '=', False)]"/>
+                <filter name="imported" string="Imported" domain="[('imported', '=', True)]"/>
+                <separator/>
+                <filter name="pending" string="Pending" domain="[('status', '=', 'pending')]"/>
+                <filter name="paid" string="Paid" domain="[('status', '=', 'paid')]"/>
+                <filter name="completed" string="Completed" domain="[('status', '=', 'completed')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_imported" string="Imported" context="{'group_by': 'imported'}"/>
+                    <filter name="group_date" string="Order Date" context="{'group_by': 'order_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- eBay Order Action -->
+    <record id="action_ebay_order" model="ir.actions.act_window">
+        <field name="name">eBay Orders</field>
+        <field name="res_model">ebay.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_ebay_order_search"/>
+        <field name="context">{'search_default_not_imported': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No eBay orders yet
+            </p>
+            <p>
+                Orders from eBay will appear here. They are imported automatically every hour.
+            </p>
+        </field>
+    </record>
+</odoo>

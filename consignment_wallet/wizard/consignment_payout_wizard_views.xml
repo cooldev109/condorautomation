@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Payout Wizard Form View -->
+    <record id="view_consignment_payout_wizard_form" model="ir.ui.view">
+        <field name="name">consignment.payout.wizard.form</field>
+        <field name="model">consignment.payout.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Payout">
+                <group>
+                    <group name="wallet_info">
+                        <field name="wallet_id" readonly="1"/>
+                        <field name="owner_id" readonly="1"/>
+                        <field name="current_balance" widget="monetary" readonly="1"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+                    <group name="payout_info">
+                        <field name="amount" widget="monetary"/>
+                        <field name="date"/>
+                        <field name="payment_method"/>
+                        <field name="payment_reference" placeholder="e.g., Check #1234, Transfer ID, etc."/>
+                    </group>
+                </group>
+
+                <group string="Description">
+                    <field name="description" nolabel="1" placeholder="Optional payout description..."/>
+                </group>
+
+                <group string="Internal Notes">
+                    <field name="notes" nolabel="1" placeholder="Internal notes (not visible to owner)..."/>
+                </group>
+
+                <footer>
+                    <button string="Create Payout" name="action_create_payout"
+                            type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

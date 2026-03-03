@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Main Wallet Menu (under Consignment root) -->
+    <menuitem id="menu_consignment_wallet_root"
+              name="Wallet"
+              parent="consignment_core.menu_consignment_root"
+              sequence="30"/>
+
+    <!-- Owner Wallets Menu -->
+    <menuitem id="menu_consignment_wallet"
+              name="Owner Wallets"
+              parent="menu_consignment_wallet_root"
+              action="action_consignment_wallet"
+              sequence="10"/>
+
+    <!-- Transactions Menu -->
+    <menuitem id="menu_consignment_wallet_transaction"
+              name="Transactions"
+              parent="menu_consignment_wallet_root"
+              action="action_consignment_wallet_transaction"
+              sequence="20"/>
+
+</odoo>

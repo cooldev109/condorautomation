@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ebay_config_admin,ebay.config.admin,model_ebay_config,base.group_system,1,1,1,1
+access_ebay_config_user,ebay.config.user,model_ebay_config,base.group_user,1,0,0,0
+access_ebay_listing_admin,ebay.listing.admin,model_ebay_listing,base.group_system,1,1,1,1
+access_ebay_listing_user,ebay.listing.user,model_ebay_listing,base.group_user,1,1,1,0
+access_ebay_order_admin,ebay.order.admin,model_ebay_order,base.group_system,1,1,1,1
+access_ebay_order_user,ebay.order.user,model_ebay_order,base.group_user,1,0,0,0
+access_ebay_list_item_wizard,ebay.list.item.wizard,model_ebay_list_item_wizard,base.group_user,1,1,1,1

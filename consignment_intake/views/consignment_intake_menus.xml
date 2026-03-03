@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add Quick Intake menu item under Consignment > Items -->
+    <menuitem id="menu_consignment_quick_intake"
+              name="Quick Intake"
+              parent="consignment_core.menu_consignment_items"
+              action="action_consignment_intake_wizard"
+              sequence="5"/>
+
+</odoo>

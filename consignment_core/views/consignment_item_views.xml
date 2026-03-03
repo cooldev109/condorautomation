@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_consignment_item_tree" model="ir.ui.view">
+        <field name="name">consignment.item.tree</field>
+        <field name="model">consignment.item</field>
+        <field name="arch" type="xml">
+            <tree string="Consignment Items" decoration-muted="state=='cancelled'" decoration-success="state=='sold'" create="true" edit="true">
+                <field name="name"/>
+                <field name="owner_id"/>
+                <field name="serial_number" optional="hide"/>
+                <field name="condition"/>
+                <field name="listing_price" optional="hide"/>
+                <field name="state" decoration-info="state=='draft'" decoration-primary="state=='received'"
+                       decoration-warning="state=='listed'" decoration-success="state in ('sold','paid')"
+                       decoration-muted="state in ('returned','cancelled')"/>
+                <field name="intake_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_consignment_item_form" model="ir.ui.view">
+        <field name="name">consignment.item.form</field>
+        <field name="model">consignment.item</field>
+        <field name="arch" type="xml">
+            <form string="Consignment Item">
+                <header>
+                    <button name="action_receive" string="Receive Item" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_list" string="List for Sale" type="object"
+                            class="oe_highlight" invisible="state != 'received'"/>
+                    <button name="action_mark_sold" string="Mark as Sold" type="object"
+                            class="oe_highlight" invisible="state != 'listed'"/>
+                    <button name="action_mark_paid" string="Mark as Paid" type="object"
+                            class="oe_highlight" invisible="state != 'sold'"/>
+                    <button name="action_return" string="Return to Owner" type="object"
+                            invisible="state not in ['received', 'listed']"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state not in ['draft', 'received', 'listed']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,received,listed,sold,paid,returned"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_images" type="object" class="oe_stat_button" icon="fa-camera">
+                            <field name="image_count" widget="statinfo" string="Images"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="owner_id"/>
+                            <field name="serial_number"/>
+                            <field name="condition"/>
+                            <field name="warehouse_id"/>
+                            <field name="location_id"/>
+                        </group>
+                        <group>
+                            <field name="intake_date"/>
+                            <field name="listed_date" invisible="state in ['draft', 'received']"/>
+                            <field name="sold_date" invisible="state not in ['sold', 'paid']"/>
+                            <field name="returned_date" invisible="state != 'returned'"/>
+                            <field name="product_id" invisible="not product_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Detailed description of the item..."/>
+                    </group>
+                    <notebook>
+                        <page string="Images" name="images">
+                            <field name="image_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="image" widget="image" options="{'size': [90, 90]}"/>
+                                    <field name="name" placeholder="Photo description..."/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Pricing" name="pricing">
+                            <group>
+                                <group>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="expected_price"/>
+                                    <field name="listing_price"/>
+                                    <field name="sale_price" invisible="state not in ['listed', 'sold', 'paid']" readonly="state in ['sold', 'paid']"/>
+                                </group>
+                                <group>
+                                    <field name="commission_rate"/>
+                                    <field name="commission_amount" invisible="state not in ['sold', 'paid']"/>
+                                    <field name="net_amount" invisible="state not in ['sold', 'paid']"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Internal Notes" name="notes">
+                            <field name="notes" placeholder="Internal notes not visible to customer..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_consignment_item_kanban" model="ir.ui.view">
+        <field name="name">consignment.item.kanban</field>
+        <field name="model">consignment.item</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="state">
+                <field name="name"/>
+                <field name="owner_id"/>
+                <field name="listing_price"/>
+                <field name="state"/>
+                <field name="image_ids"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <t t-if="record.image_ids.raw_value and record.image_ids.raw_value.length">
+                                    <img t-att-src="kanban_image('consignment.image', 'image', record.image_ids.raw_value[0])"
+                                         alt="Item" class="o_image_64_cover"/>
+                                </t>
+                                <t t-if="!record.image_ids.raw_value or !record.image_ids.raw_value.length">
+                                    <img src="/web/static/img/placeholder.png" alt="No Image" class="o_image_64_cover"/>
+                                </t>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="owner_id"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="listing_price" widget="monetary"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="state" widget="label_selection"
+                                               options="{'classes': {'draft': 'default', 'received': 'info',
+                                               'listed': 'warning', 'sold': 'success', 'paid': 'success',
+                                               'returned': 'muted', 'cancelled': 'muted'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_consignment_item_search" model="ir.ui.view">
+        <field name="name">consignment.item.search</field>
+        <field name="model">consignment.item</field>
+        <field name="arch" type="xml">
+            <search string="Search Consignment Items">
+                <field name="name" string="Reference" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="owner_id" string="Owner" filter_domain="[('owner_id.name', 'ilike', self)]"/>
+                <field name="serial_number"/>
+                <field name="description" string="Description" filter_domain="[('description', 'ilike', self)]"/>
+                <separator/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Received" name="received" domain="[('state', '=', 'received')]"/>
+                <filter string="Listed" name="listed" domain="[('state', '=', 'listed')]"/>
+                <filter string="Sold" name="sold" domain="[('state', '=', 'sold')]"/>
+                <filter string="Paid" name="paid" domain="[('state', '=', 'paid')]"/>
+                <separator/>
+                <filter string="This Month" name="this_month"
+                        domain="[('intake_date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                 ('intake_date', '&lt;=', (context_today() + relativedelta(day=31)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year"
+                        domain="[('intake_date', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),
+                                 ('intake_date', '&lt;=', (context_today() + relativedelta(month=12, day=31)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Owner" name="group_owner" context="{'group_by': 'owner_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Condition" name="group_condition" context="{'group_by': 'condition'}"/>
+                    <filter string="Intake Month" name="group_intake_month" context="{'group_by': 'intake_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

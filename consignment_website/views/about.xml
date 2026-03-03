@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="about" name="About Us">
+        <t t-call="consignment_website.layout">
+            <!-- Hero Section -->
+            <section class="ca-hero ca-hero-small">
+                <div class="ca-container">
+                    <h1 class="ca-hero-title">About CondorAutomation</h1>
+                    <p class="ca-hero-subtitle">Your trusted partner in industrial machinery consignment since 2010</p>
+                </div>
+            </section>
+
+            <!-- Our Story Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-about-content">
+                        <div class="ca-about-text">
+                            <h2>Our Story</h2>
+                            <p>Founded in 2010, CondorAutomation emerged from a simple observation: the industrial machinery market lacked a trustworthy, transparent consignment partner that truly understood both equipment owners and buyers.</p>
+                            <p>Over the past 15+ years, we've grown from a small regional operation to a globally recognized platform, facilitating thousands of successful machinery transactions across 50+ countries. Our success is built on unwavering commitment to transparency, expertise, and client satisfaction.</p>
+                            <p>Today, we serve manufacturers, fabricators, and industrial facilities worldwide, helping them maximize the value of their equipment while connecting buyers with the machinery they need to grow their businesses.</p>
+                        </div>
+                        <div class="ca-about-image">
+                            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&amp;h=400&amp;fit=crop" alt="Industrial Facility"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission & Vision Section -->
+            <section class="ca-section ca-mission-section">
+                <div class="ca-container">
+                    <div class="ca-mission-grid">
+                        <div class="ca-mission-card">
+                            <div class="ca-mission-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h3>Our Mission</h3>
+                            <p>To provide transparent, professional consignment services that maximize value for equipment owners while connecting qualified buyers with the industrial machinery they need.</p>
+                        </div>
+                        <div class="ca-mission-card">
+                            <div class="ca-mission-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p>To become the world's most trusted industrial machinery consignment platform, recognized for integrity, expertise, and exceptional client service.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Values Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-section-header">
+                        <h2>Our Core Values</h2>
+                        <p>The principles that guide everything we do</p>
+                    </div>
+
+                    <div class="ca-values-grid">
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">01</div>
+                            <h4>Integrity</h4>
+                            <p>We operate with complete honesty and transparency in every transaction.</p>
+                        </div>
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">02</div>
+                            <h4>Expertise</h4>
+                            <p>Deep industry knowledge and technical understanding drive our success.</p>
+                        </div>
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">03</div>
+                            <h4>Client Focus</h4>
+                            <p>Your success is our priority. We tailor our services to your unique needs.</p>
+                        </div>
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">04</div>
+                            <h4>Innovation</h4>
+                            <p>We continuously improve our processes and technology to serve you better.</p>
+                        </div>
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">05</div>
+                            <h4>Reliability</h4>
+                            <p>We deliver on our commitments with consistent, dependable service.</p>
+                        </div>
+                        <div class="ca-value-item">
+                            <div class="ca-value-number">06</div>
+                            <h4>Partnership</h4>
+                            <p>We build long-term relationships based on mutual trust and success.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Different Section -->
+            <section class="ca-section ca-why-different-section">
+                <div class="ca-container">
+                    <div class="ca-why-different-content">
+                        <div class="ca-why-different-text">
+                            <h2>Why We're Different</h2>
+                            <div class="ca-different-list">
+                                <div class="ca-different-item">
+                                    <div class="ca-different-icon">✓</div>
+                                    <div>
+                                        <h4>Industry Specialization</h4>
+                                        <p>We focus exclusively on industrial machinery, bringing unmatched expertise to every transaction.</p>
+                                    </div>
+                                </div>
+                                <div class="ca-different-item">
+                                    <div class="ca-different-icon">✓</div>
+                                    <div>
+                                        <h4>No Hidden Fees</h4>
+                                        <p>Transparent pricing with straightforward commission structure and no surprise charges.</p>
+                                    </div>
+                                </div>
+                                <div class="ca-different-item">
+                                    <div class="ca-different-icon">✓</div>
+                                    <div>
+                                        <h4>Global Reach</h4>
+                                        <p>Extensive buyer network spanning 50+ countries for maximum market exposure.</p>
+                                    </div>
+                                </div>
+                                <div class="ca-different-item">
+                                    <div class="ca-different-icon">✓</div>
+                                    <div>
+                                        <h4>Dedicated Support</h4>
+                                        <p>Personal account manager guiding you through every step of the process.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ca-stats-box">
+                            <h3>By the Numbers</h3>
+                            <div class="ca-stat-row">
+                                <div class="ca-stat-large">15+</div>
+                                <div class="ca-stat-text">Years of Excellence</div>
+                            </div>
+                            <div class="ca-stat-row">
+                                <div class="ca-stat-large">1000+</div>
+                                <div class="ca-stat-text">Successful Sales</div>
+                            </div>
+                            <div class="ca-stat-row">
+                                <div class="ca-stat-large">50+</div>
+                                <div class="ca-stat-text">Countries Served</div>
+                            </div>
+                            <div class="ca-stat-row">
+                                <div class="ca-stat-large">98%</div>
+                                <div class="ca-stat-text">Client Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="ca-section">
+                <div class="ca-container">
+                    <div class="ca-cta-box">
+                        <h2>Let's Work Together</h2>
+                        <p>Ready to experience the CondorAutomation difference? Contact us today to discuss your equipment consignment needs.</p>
+                        <div class="ca-cta-buttons">
+                            <a href="/contact" class="ca-btn ca-btn-primary ca-btn-large">Contact Us</a>
+                            <a href="/services" class="ca-btn ca-btn-secondary ca-btn-large">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

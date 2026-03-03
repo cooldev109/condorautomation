@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="homepage" name="Homepage">
+        <t t-call="consignment_website.layout">
+
+            <!-- 1. HERO SECTION -->
+            <section class="ca-hero">
+                <div class="ca-container">
+                    <div class="ca-hero-content">
+                        <div class="ca-hero-text">
+                            <h1>When your machine stops, we move fast.</h1>
+                            <p>Industrial machinery consignment. Connecting buyers with equipment owners through transparent, reliable service.</p>
+                            <div class="ca-hero-cta">
+                                <a href="/contact" class="ca-btn ca-btn-primary ca-btn-urgent">IT'S URGENT</a>
+                                <a href="/services" class="ca-btn ca-btn-secondary">How It Works</a>
+                            </div>
+                        </div>
+                        <div class="ca-hero-carousel">
+                            <!-- Carousel Container -->
+                            <div class="ca-carousel">
+                                <div class="ca-carousel-inner">
+                                    <!-- Slide 1: CNC Machinery -->
+                                    <div class="ca-carousel-item active">
+                                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&amp;h=800&amp;fit=crop" alt="CNC Industrial Machinery" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                    </div>
+                                    <!-- Slide 2: Industrial Warehouse -->
+                                    <div class="ca-carousel-item">
+                                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&amp;h=800&amp;fit=crop" alt="Industrial Warehouse Equipment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                    </div>
+                                    <!-- Slide 3: Manufacturing Equipment -->
+                                    <div class="ca-carousel-item">
+                                        <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&amp;h=800&amp;fit=crop" alt="Manufacturing Equipment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                    </div>
+                                    <!-- Slide 4: Industrial Machinery Detail -->
+                                    <div class="ca-carousel-item">
+                                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&amp;h=800&amp;fit=crop" alt="Industrial Machinery Detail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                    </div>
+                                </div>
+                                <!-- Carousel Controls -->
+                                <button class="ca-carousel-prev" data-carousel-action="prev">‹</button>
+                                <button class="ca-carousel-next" data-carousel-action="next">›</button>
+                                <!-- Carousel Indicators -->
+                                <div class="ca-carousel-indicators">
+                                    <span class="ca-indicator active" data-slide-index="0"></span>
+                                    <span class="ca-indicator" data-slide-index="1"></span>
+                                    <span class="ca-indicator" data-slide-index="2"></span>
+                                    <span class="ca-indicator" data-slide-index="3"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. SERVICES OVERVIEW -->
+            <section class="ca-section ca-section-light">
+                <div class="ca-container">
+                    <h2 class="ca-section-title">Complete consignment management</h2>
+
+                    <div class="ca-card-grid">
+                        <!-- Card 1: For Sellers -->
+                        <div class="ca-card" style="padding: 0; overflow: hidden;">
+                            <div class="ca-card-image" style="width: 100%; margin: 0;">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&amp;h=400&amp;fit=crop" alt="Industrial Equipment" style="width: 100%; height: 220px; object-fit: cover; display: block;"/>
+                            </div>
+                            <div style="padding: 2rem;">
+                                <h3 class="ca-card-title">For Sellers</h3>
+                                <p class="ca-card-text">Consign your industrial equipment. Zero upfront cost. Track everything in real-time through your personal portal.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: For Buyers -->
+                        <div class="ca-card" style="padding: 0; overflow: hidden;">
+                            <div class="ca-card-image" style="width: 100%; margin: 0;">
+                                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&amp;h=400&amp;fit=crop" alt="Industrial Machinery" style="width: 100%; height: 220px; object-fit: cover; display: block;"/>
+                            </div>
+                            <div style="padding: 2rem;">
+                                <h3 class="ca-card-title">For Buyers</h3>
+                                <p class="ca-card-text">Access verified industrial machinery. Transparent pricing. Complete equipment history. Fast delivery coordination.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Full Service -->
+                        <div class="ca-card" style="padding: 0; overflow: hidden;">
+                            <div class="ca-card-image" style="width: 100%; margin: 0;">
+                                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&amp;h=400&amp;fit=crop" alt="Industrial Service" style="width: 100%; height: 220px; object-fit: cover; display: block;"/>
+                            </div>
+                            <div style="padding: 2rem;">
+                                <h3 class="ca-card-title">Full Service</h3>
+                                <p class="ca-card-text">We handle photography, inspection, listing, sales, and payments. 12-month warranty on all services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. HOW IT WORKS -->
+            <section class="ca-section ca-section-white">
+                <div class="ca-container">
+                    <h2 class="ca-section-title">How Our Consignment Process Works</h2>
+                    <p style="text-align: center; max-width: 700px; margin: -1rem auto 3rem; color: var(--ca-text-secondary); font-size: 1.1rem;">From listing to payment, we handle everything. Here's your industrial equipment journey from start to finish.</p>
+
+                    <div class="ca-process-timeline">
+                        <!-- Step 1: Submit Equipment -->
+                        <div class="ca-process-step">
+                            <div class="ca-process-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <div class="ca-process-number">01</div>
+                            <h3 class="ca-process-title">Submit Your Equipment</h3>
+                            <p class="ca-process-desc">Register your equipment online or contact us for a free consultation.</p>
+                        </div>
+
+                        <!-- Step 2: Professional Inspection -->
+                        <div class="ca-process-step">
+                            <div class="ca-process-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                    <line x1="11" y1="8" x2="11" y2="14"/>
+                                    <line x1="8" y1="11" x2="14" y2="11"/>
+                                </svg>
+                            </div>
+                            <div class="ca-process-number">02</div>
+                            <h3 class="ca-process-title">Inspection &amp; Photography</h3>
+                            <p class="ca-process-desc">We inspect, photograph, and create detailed technical reports.</p>
+                        </div>
+
+                        <!-- Step 3: Listing & Marketing -->
+                        <div class="ca-process-step">
+                            <div class="ca-process-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                </svg>
+                            </div>
+                            <div class="ca-process-number">03</div>
+                            <h3 class="ca-process-title">Professional Listing</h3>
+                            <p class="ca-process-desc">Your equipment gets listed with transparent pricing across multiple channels.</p>
+                        </div>
+
+                        <!-- Step 4: Sale & Coordination -->
+                        <div class="ca-process-step">
+                            <div class="ca-process-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div class="ca-process-number">04</div>
+                            <h3 class="ca-process-title">Sale &amp; Logistics</h3>
+                            <p class="ca-process-desc">We handle negotiations, secure payments, and coordinate shipping logistics.</p>
+                        </div>
+
+                        <!-- Step 5: Payment & Support -->
+                        <div class="ca-process-step">
+                            <div class="ca-process-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="ca-process-number">05</div>
+                            <h3 class="ca-process-title">Payment &amp; Tracking</h3>
+                            <p class="ca-process-desc">Track sales through your portal with automated payments and warranty coverage.</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA at the bottom -->
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="/contact" class="ca-btn ca-btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Start Your Consignment</a>
+                        <p style="margin-top: 1rem; color: var(--ca-text-secondary);">Questions? <a href="/contact" style="color: var(--ca-accent); font-weight: 600;">Contact our team</a> for a free consultation</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. TRUST SECTION -->
+            <section class="ca-section ca-section-light">
+                <div class="ca-container">
+                    <h2 class="ca-section-title">Built for reliability</h2>
+
+                    <div class="ca-trust-grid">
+                        <div class="ca-trust-item">
+                            <div class="ca-trust-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <p class="ca-trust-text">12-month warranty</p>
+                        </div>
+
+                        <div class="ca-trust-item">
+                            <div class="ca-trust-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <p class="ca-trust-text">Real-time tracking portal</p>
+                        </div>
+
+                        <div class="ca-trust-item">
+                            <div class="ca-trust-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg>
+                            </div>
+                            <p class="ca-trust-text">Automated payment processing</p>
+                        </div>
+
+                        <div class="ca-trust-item">
+                            <div class="ca-trust-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <p class="ca-trust-text">Verified equipment inspection</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. URGENT CTA -->
+            <section class="ca-section ca-section-dark">
+                <div class="ca-container" style="text-align: center;">
+                    <h2 style="color: white; margin-bottom: 1.5rem;">Production can't wait.</h2>
+                    <a href="/contact" class="ca-btn ca-btn-primary ca-btn-urgent">IT'S URGENT</a>
+                </div>
+            </section>
+
+        </t>
+    </template>
+</odoo>

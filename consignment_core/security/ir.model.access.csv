@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_consignment_item_user,consignment.item.user,model_consignment_item,group_consignment_user,1,0,0,0
+access_consignment_item_manager,consignment.item.manager,model_consignment_item,group_consignment_manager,1,1,1,1
+access_consignment_item_portal,consignment.item.portal,model_consignment_item,base.group_portal,1,0,0,0
+access_consignment_image_user,consignment.image.user,model_consignment_image,group_consignment_user,1,0,0,0
+access_consignment_image_manager,consignment.image.manager,model_consignment_image,group_consignment_manager,1,1,1,1
+access_consignment_image_portal,consignment.image.portal,model_consignment_image,base.group_portal,1,0,0,0

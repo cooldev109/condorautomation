@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Security Groups -->
+        <record id="group_consignment_user" model="res.groups">
+            <field name="name">Consignment: User</field>
+            <field name="category_id" ref="base.module_category_inventory_inventory"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_consignment_manager" model="res.groups">
+            <field name="name">Consignment: Manager</field>
+            <field name="category_id" ref="base.module_category_inventory_inventory"/>
+            <field name="implied_ids" eval="[(4, ref('group_consignment_user'))]"/>
+        </record>
+
+        <!-- Record Rules -->
+        <!-- Multi-company rule -->
+        <record id="consignment_item_comp_rule" model="ir.rule">
+            <field name="name">Consignment Item: multi-company</field>
+            <field name="model_id" ref="model_consignment_item"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- Portal rule: users can only see their own items -->
+        <record id="consignment_item_portal_rule" model="ir.rule">
+            <field name="name">Consignment Item: portal users</field>
+            <field name="model_id" ref="model_consignment_item"/>
+            <field name="domain_force">[('owner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Actions -->
+    <record id="action_consignment_item" model="ir.actions.act_window">
+        <field name="name">Consignment Items</field>
+        <field name="res_model">consignment.item</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('state', 'not in', ['cancelled', 'returned'])]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first consignment item!
+            </p>
+            <p>
+                Track items sent by customers for consignment sales.
+            </p>
+        </field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem id="menu_consignment_root"
+              name="Consignment"
+              action="action_consignment_item"
+              web_icon="consignment_core,static/description/icon.png"
+              sequence="50"/>
+
+    <!-- Items Submenu -->
+    <menuitem id="menu_consignment_items"
+              name="Items"
+              parent="menu_consignment_root"
+              sequence="10"/>
+
+    <menuitem id="menu_consignment_item_all"
+              name="All Items"
+              parent="menu_consignment_items"
+              action="action_consignment_item"
+              sequence="10"/>
+
+    <!-- Filtered views -->
+    <record id="action_consignment_item_received" model="ir.actions.act_window">
+        <field name="name">Received Items</field>
+        <field name="res_model">consignment.item</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('state', '=', 'received')]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_consignment_item_received"
+              name="Received"
+              parent="menu_consignment_items"
+              action="action_consignment_item_received"
+              sequence="20"/>
+
+    <record id="action_consignment_item_listed" model="ir.actions.act_window">
+        <field name="name">Listed Items</field>
+        <field name="res_model">consignment.item</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('state', '=', 'listed')]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_consignment_item_listed"
+              name="Listed"
+              parent="menu_consignment_items"
+              action="action_consignment_item_listed"
+              sequence="30"/>
+
+    <record id="action_consignment_item_sold" model="ir.actions.act_window">
+        <field name="name">Sold Items</field>
+        <field name="res_model">consignment.item</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('state', 'in', ['sold', 'paid'])]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_consignment_item_sold"
+              name="Sold"
+              parent="menu_consignment_items"
+              action="action_consignment_item_sold"
+              sequence="40"/>
+
+    <record id="action_consignment_item_returned" model="ir.actions.act_window">
+        <field name="name">Returned Items</field>
+        <field name="res_model">consignment.item</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('state', '=', 'returned')]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_consignment_item_returned"
+              name="Returned"
+              parent="menu_consignment_items"
+              action="action_consignment_item_returned"
+              sequence="50"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_consignment_configuration"
+              name="Configuration"
+              parent="menu_consignment_root"
+              sequence="100"
+              groups="group_consignment_manager"/>
+
+</odoo>

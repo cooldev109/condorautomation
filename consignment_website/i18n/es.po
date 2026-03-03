@@ -1,0 +1,119 @@
+# Translation for consignment_website - Spanish
+# Copyright (C) 2026 CondorAutomation
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 12:00:00\n"
+"PO-Revision-Date: 2026-01-15 12:00:00\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Navigation
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Why Choose Us"
+msgstr "Por Qué Elegirnos"
+
+msgid "Services"
+msgstr "Servicios"
+
+msgid "About Us"
+msgstr "Nosotros"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "IT'S URGENT"
+msgstr "ES URGENTE"
+
+# Homepage - Hero
+msgid "When your machine stops, we move fast."
+msgstr "Cuando su máquina se detiene, actuamos rápido."
+
+msgid "Industrial machinery consignment. Connecting buyers with equipment owners through transparent, reliable service."
+msgstr "Consignación de maquinaria industrial. Conectamos compradores con propietarios de equipos a través de un servicio transparente y confiable."
+
+msgid "How It Works"
+msgstr "Cómo Funciona"
+
+# Homepage - Services
+msgid "Complete consignment management"
+msgstr "Gestión completa de consignación"
+
+msgid "For Sellers"
+msgstr "Para Vendedores"
+
+msgid "Consign your industrial equipment. Zero upfront cost. Track everything in real-time through your personal portal."
+msgstr "Consigne su equipo industrial. Cero costo inicial. Siga todo en tiempo real a través de su portal personal."
+
+msgid "For Buyers"
+msgstr "Para Compradores"
+
+msgid "Access verified industrial machinery. Transparent pricing. Complete equipment history. Fast delivery coordination."
+msgstr "Acceso a maquinaria industrial verificada. Precios transparentes. Historial completo del equipo. Coordinación rápida de entrega."
+
+msgid "Full Service"
+msgstr "Servicio Completo"
+
+msgid "We handle photography, inspection, listing, sales, and payments. 12-month warranty on all services."
+msgstr "Manejamos fotografía, inspección, listado, ventas y pagos. Garantía de 12 meses en todos los servicios."
+
+# Homepage - How It Works
+msgid "Simple consignment process"
+msgstr "Proceso de consignación simple"
+
+msgid "Register your equipment or contact us with your requirements."
+msgstr "Registre su equipo o contáctenos con sus requisitos."
+
+msgid "We inspect, photograph, and list items with transparent pricing."
+msgstr "Inspeccionamos, fotografiamos y listamos artículos con precios transparentes."
+
+msgid "Track sales and payments through your personal portal with automated processing."
+msgstr "Rastree ventas y pagos a través de su portal personal con procesamiento automatizado."
+
+# Homepage - Trust
+msgid "Built for reliability"
+msgstr "Construido para confiabilidad"
+
+msgid "12-month warranty"
+msgstr "Garantía de 12 meses"
+
+msgid "Real-time tracking portal"
+msgstr "Portal de seguimiento en tiempo real"
+
+msgid "Automated payment processing"
+msgstr "Procesamiento automatizado de pagos"
+
+msgid "Verified equipment inspection"
+msgstr "Inspección verificada de equipos"
+
+# Homepage - CTA
+msgid "Production can't wait."
+msgstr "La producción no puede esperar."
+
+# Footer
+msgid "Industrial machinery consignment platform."
+msgstr "Plataforma de consignación de maquinaria industrial."
+
+msgid "Connecting buyers with equipment owners through transparent, reliable service."
+msgstr "Conectando compradores con propietarios de equipos a través de un servicio transparente y confiable."
+
+msgid "Quick Links"
+msgstr "Enlaces Rápidos"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Email: info@condorautomation.com"
+msgstr "Email: info@condorautomation.com"
+
+msgid "Support available 24/7"
+msgstr "Soporte disponible 24/7"
+
+msgid "© 2026 CondorAutomation. All rights reserved."
+msgstr "© 2026 CondorAutomation. Todos los derechos reservados."
