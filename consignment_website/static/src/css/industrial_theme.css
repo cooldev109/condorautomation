@@ -2098,7 +2098,7 @@ p {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    height: 350px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     background: white;
