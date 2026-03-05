@@ -394,7 +394,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0 20px 0;
+    padding: 0 0 10px 0;
     box-shadow: 0 4px 12px rgba(11, 27, 51, 0.2);
 }
 
