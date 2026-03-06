@@ -19,21 +19,21 @@
                             <!-- Carousel Container -->
                             <div class="ca-carousel">
                                 <div class="ca-carousel-inner">
-                                    <!-- Slide 1: CNC Machinery -->
+                                    <!-- Slide 1 -->
                                     <div class="ca-carousel-item active">
-                                        <img src="https://images.pexels.com/photos/8973680/pexels-photo-8973680.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="CNC Industrial Machinery" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                        <img src="https://images.pexels.com/photos/34718928/pexels-photo-34718928.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Electronics Consignment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
                                     </div>
-                                    <!-- Slide 2: Industrial Warehouse -->
+                                    <!-- Slide 2 -->
                                     <div class="ca-carousel-item">
-                                        <img src="https://images.pexels.com/photos/18920790/pexels-photo-18920790.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Industrial Machinery in a Factory" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                        <img src="https://images.pexels.com/photos/4224970/pexels-photo-4224970.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Electronic Equipment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
                                     </div>
-                                    <!-- Slide 3: Manufacturing Equipment -->
+                                    <!-- Slide 3 -->
                                     <div class="ca-carousel-item">
-                                        <img src="https://images.pexels.com/photos/19316517/pexels-photo-19316517.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Machinery in Factory" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                        <img src="https://images.unsplash.com/photo-fm4B1xWEIsU?w=1200&amp;h=800&amp;fit=crop" alt="Electronics Technology" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
                                     </div>
-                                    <!-- Slide 4: Industrial Factory Aerial -->
+                                    <!-- Slide 4 -->
                                     <div class="ca-carousel-item">
-                                        <img src="https://images.pexels.com/photos/9468989/pexels-photo-9468989.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Bird's-eye View of Industrial Factory" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
+                                        <img src="https://images.pexels.com/photos/3747140/pexels-photo-3747140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop" alt="Electronics Consignment Service" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"/>
                                     </div>
                                 </div>
                                 <!-- Carousel Controls -->
