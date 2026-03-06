@@ -41,6 +41,7 @@ body {
     line-height: 1.6;
     color: var(--ca-text-primary);
     background-color: var(--ca-bg-content);
+    overflow-x: hidden;
 }
 
 /* Typography */
@@ -914,6 +915,36 @@ p {
     .ca-indicator {
         width: 10px;
         height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ca-nav {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .ca-logo img {
+        height: 40px;
+    }
+
+    .ca-lang-current {
+        display: none;
+    }
+
+    .ca-lang-toggle-btn {
+        padding: 6px 8px;
+        gap: 4px;
+    }
+
+    .ca-btn-urgent {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap;
+    }
+
+    .ca-nav-right {
+        gap: 0.5rem;
     }
 }
 
