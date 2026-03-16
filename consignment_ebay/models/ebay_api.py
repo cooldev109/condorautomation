@@ -2,6 +2,7 @@
 import requests
 import json
 import base64
+from urllib.parse import quote
 from datetime import datetime, timedelta
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
@@ -204,7 +205,7 @@ class EbayAPI(models.AbstractModel):
         headers = self._get_auth_header()
         endpoints = self._get_endpoints()
 
-        url = f"{endpoints['sell']}/inventory/v1/inventory_item/{sku}"
+        url = f"{endpoints['sell']}/inventory/v1/inventory_item/{quote(sku, safe='')}"
 
         try:
             response = requests.put(url, headers=headers, json=product_data)
