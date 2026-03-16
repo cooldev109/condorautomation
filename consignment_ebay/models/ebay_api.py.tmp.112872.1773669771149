@@ -114,12 +114,10 @@ class EbayAPI(models.AbstractModel):
             'Authorization': f'Basic {b64_credentials}',
         }
 
-        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url', default='http://localhost:8069')
-        callback_url = f"{base_url}/ebay/oauth/callback"
         data = {
             'grant_type': 'authorization_code',
             'code': auth_code,
-            'redirect_uri': config.ru_name if config.ru_name else callback_url,
+            'redirect_uri': self.env['ir.config_parameter'].sudo().get_param('web.base.url', default='http://localhost:8069') + '/ebay/oauth/callback',
         }
 
         try:
