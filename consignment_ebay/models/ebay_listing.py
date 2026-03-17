@@ -188,7 +188,8 @@ class EbayListing(models.Model):
         """Generate SKU if not provided"""
         if not vals.get('sku'):
             consignment_item = self.env['consignment.item'].browse(vals['consignment_item_id'])
-            vals['sku'] = f"CONS-{consignment_item.name}"
+            safe_name = consignment_item.name.replace('/', '-').replace(' ', '-')
+            vals['sku'] = f"CONS-{safe_name}"
         return super().create(vals)
 
     def action_create_inventory_item(self):
