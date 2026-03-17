@@ -308,24 +308,17 @@ class EbayListing(models.Model):
     def _prepare_inventory_data(self):
         """Prepare inventory item data for eBay API"""
         self.ensure_one()
+        import re
 
-        # Get images from consignment item
-        image_urls = []
-        for image in self.consignment_item_id.image_ids[:12]:  # eBay allows max 12 images
-            if image.image:
-                # Convert to data URL (in production, host externally)
-                image_urls.append({
-                    'imageUrl': f"data:image/jpeg;base64,{image.image.decode()}"
-                })
+        # Strip HTML tags from description
+        raw_desc = self.description or self.consignment_item_id.description or self.name
+        clean_desc = re.sub(r'<[^>]+>', ' ', str(raw_desc)).strip() if raw_desc else self.name
 
         data = {
             'product': {
-                'title': self.name,
-                'description': self.description or self.consignment_item_id.description,
-                'imageUrls': [img['imageUrl'] for img in image_urls] if image_urls else [],
-                'aspects': {
-                    'Condition': [self.condition_id],
-                }
+                'title': self.name[:80],  # eBay max title length
+                'description': clean_desc[:4000],
+                'aspects': {},
             },
             'condition': self.condition_id,
             'availability': {
