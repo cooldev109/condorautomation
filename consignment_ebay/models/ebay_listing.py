@@ -315,13 +315,23 @@ class EbayListing(models.Model):
         raw_desc = self.description or self.consignment_item_id.description or self.name
         clean_desc = re.sub(r'<[^>]+>', ' ', str(raw_desc)).strip() if raw_desc else self.name
 
+        # eBay REST API uses string condition values, not numeric IDs
+        condition_map = {
+            '1000': 'NEW',
+            '1500': 'NEW_OTHER',
+            '2000': 'MANUFACTURER_REFURBISHED',
+            '2500': 'SELLER_REFURBISHED',
+            '3000': 'USED_EXCELLENT',
+            '7000': 'FOR_PARTS_OR_NOT_WORKING',
+        }
+        condition = condition_map.get(self.condition_id, 'USED_EXCELLENT')
+
         data = {
             'product': {
-                'title': self.name[:80],  # eBay max title length
+                'title': self.name[:80],
                 'description': clean_desc[:4000],
-                'aspects': {},
             },
-            'condition': self.condition_id,
+            'condition': condition,
             'availability': {
                 'shipToLocationAvailability': {
                     'quantity': self.quantity
