@@ -321,28 +321,16 @@ p:last-child { margin-bottom: 0; }
 }
 
 .ca-brand {
-    font-family: var(--ca-serif);
-    font-size: 1.4rem;
-    color: var(--ca-fg);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-.ca-brand:hover { color: var(--ca-fg); }
-.ca-brand-mark {
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--ca-accent);
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    color: var(--ca-accent);
-    font-family: var(--ca-serif);
-    font-size: 0.85rem;
-    font-style: italic;
 }
+.ca-brand img {
+    height: 44px;
+    width: auto;
+    display: block;
+    transition: opacity var(--ca-fast) var(--ca-ease);
+}
+.ca-brand:hover img { opacity: 0.85; }
 
 .ca-nav-center {
     display: flex;

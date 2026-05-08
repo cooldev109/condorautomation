@@ -14,8 +14,7 @@
             <header class="ca-header" id="ca-header">
                 <nav class="ca-nav">
                     <a href="/" class="ca-brand">
-                        <span class="ca-brand-mark">C</span>
-                        <span>CondorAutomation</span>
+                        <img src="/consignment_core/static/src/img/condor_logo.jpg" alt="CondorAutomation"/>
                     </a>
 
                     <div class="ca-nav-center">
