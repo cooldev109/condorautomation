@@ -1,1 +1,17 @@
 nul
+
+# Editor / IDE temp files
+*.tmp.*
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log

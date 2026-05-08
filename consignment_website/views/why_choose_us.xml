@@ -1,136 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="why_choose_us" name="Why Choose Us">
+    <template id="why_choose_us" name="Approach">
         <t t-call="consignment_website.layout">
-            <!-- Hero Section -->
-            <section class="ca-hero ca-hero-small">
-                <div class="ca-container">
-                    <h1 class="ca-hero-title">Why Choose CondorAutomation</h1>
-                    <p class="ca-hero-subtitle">The trusted partner for industrial machinery consignment</p>
+
+            <!-- HERO -->
+            <section class="ca-hero-inner">
+                <div class="ca-container" data-reveal="">
+                    <span class="ca-eyebrow">N° 003 — Approach</span>
+                    <h1>Selling industrial equipment yourself is <em>expensive</em> — even when you don't pay anyone.</h1>
+                    <p class="ca-lede">Time on the phone, photos that don't sell, tire-kickers, freight quotes, payment headaches. We replaced all of it with one team and one transparent commission.</p>
                 </div>
             </section>
 
-            <!-- Key Benefits Section -->
+            <!-- DIY vs US — comparison -->
             <section class="ca-section">
                 <div class="ca-container">
-                    <div class="ca-section-header">
-                        <h2>What Sets Us Apart</h2>
-                        <p>Experience the difference with our professional consignment services</p>
+                    <div class="ca-page-head" data-reveal="">
+                        <span class="ca-eyebrow">Side by side</span>
+                        <h2>What "free" actually costs.</h2>
+                        <p class="ca-lede">A direct comparison between selling alone and working with us.</p>
                     </div>
-
-                    <div class="ca-benefits-grid">
-                        <!-- Benefit 1: Expertise -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&amp;h=400&amp;fit=crop" alt="Industry Expertise" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Industry Expertise</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Industry Expertise</h3>
-                                <p>Decades of experience in industrial machinery with deep market knowledge and technical understanding.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit 2: Transparent -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&amp;h=400&amp;fit=crop" alt="Complete Transparency" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Complete Transparency</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Complete Transparency</h3>
-                                <p>Clear pricing structure with no hidden fees, straightforward terms, and honest appraisals.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit 3: Network -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&amp;h=400&amp;fit=crop" alt="Global Network" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Global Network</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Global Network</h3>
-                                <p>Access to worldwide buyers through our extensive industry connections and marketing channels.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit 4: Speed -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&amp;h=400&amp;fit=crop" alt="Fast Turnaround" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Fast Turnaround</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Fast Turnaround</h3>
-                                <p>Efficient processes and active buyer network ensure quick sales and faster returns on your assets.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit 5: Professional Service -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&amp;h=400&amp;fit=crop" alt="Dedicated Support" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Dedicated Support</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Dedicated Support</h3>
-                                <p>Expert team providing personalized service from initial appraisal through final sale completion.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit 6: Security -->
-                        <div class="ca-benefit-card ca-service-card-hover">
-                            <div class="ca-service-image">
-                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&amp;h=400&amp;fit=crop" alt="Secure Transactions" class="ca-service-photo"/>
-                                <h3 class="ca-service-title-overlay">Secure Transactions</h3>
-                            </div>
-                            <div class="ca-service-content">
-                                <h3>Secure Transactions</h3>
-                                <p>Protected payments, verified buyers, and comprehensive insurance options for peace of mind.</p>
-                            </div>
-                        </div>
+                    <div data-reveal="" data-reveal-delay="1">
+                        <table class="ca-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Going it alone</th>
+                                    <th>CondorAutomation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Photography &amp; listing</td>
+                                    <td class="col-them">Phone shots, generic copy</td>
+                                    <td class="col-us">Studio-quality photography, full technical write-up</td>
+                                </tr>
+                                <tr>
+                                    <td>Buyer reach</td>
+                                    <td class="col-them">One marketplace, mostly local</td>
+                                    <td class="col-us">Our site + eBay + 50-country buyer network</td>
+                                </tr>
+                                <tr>
+                                    <td>Time on your plate</td>
+                                    <td class="col-them">Calls, emails, viewings, negotiations</td>
+                                    <td class="col-us">Zero — we handle every conversation</td>
+                                </tr>
+                                <tr>
+                                    <td>Buyer screening</td>
+                                    <td class="col-them">You hope they're real</td>
+                                    <td class="col-us">Verified financials, escrow-protected payment</td>
+                                </tr>
+                                <tr>
+                                    <td>Shipping &amp; logistics</td>
+                                    <td class="col-them">Your problem to solve</td>
+                                    <td class="col-us">Freight quoted, booked, tracked</td>
+                                </tr>
+                                <tr>
+                                    <td>Visibility</td>
+                                    <td class="col-them">A folder of emails</td>
+                                    <td class="col-us">Live owner portal — status, views, offers, payouts</td>
+                                </tr>
+                                <tr>
+                                    <td>When you get paid</td>
+                                    <td class="col-them">After bank transfer + chasing</td>
+                                    <td class="col-us">Auto-credited to wallet on settlement</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
 
-            <!-- Stats Section -->
-            <section class="ca-section ca-stats-section">
+            <!-- METRICS -->
+            <section class="ca-section ca-section-elev">
                 <div class="ca-container">
-                    <div class="ca-stats-grid">
-                        <div class="ca-stat-item">
-                            <div class="ca-stat-number">15+</div>
-                            <div class="ca-stat-label">Years Experience</div>
+                    <div class="ca-page-head" data-reveal="">
+                        <span class="ca-eyebrow">Four numbers that matter</span>
+                        <h2>The promise, quantified.</h2>
+                    </div>
+                    <div class="ca-metrics">
+                        <div class="ca-metric" data-reveal="" data-reveal-delay="1">
+                            <div class="ca-metric-num">14<em>d</em></div>
+                            <div class="ca-metric-label">Median time to first offer</div>
                         </div>
-                        <div class="ca-stat-item">
-                            <div class="ca-stat-number">1000+</div>
-                            <div class="ca-stat-label">Machines Sold</div>
+                        <div class="ca-metric" data-reveal="" data-reveal-delay="2">
+                            <div class="ca-metric-num">98<em>%</em></div>
+                            <div class="ca-metric-label">Owner satisfaction · last 12 months</div>
                         </div>
-                        <div class="ca-stat-item">
-                            <div class="ca-stat-number">98%</div>
-                            <div class="ca-stat-label">Client Satisfaction</div>
+                        <div class="ca-metric" data-reveal="" data-reveal-delay="3">
+                            <div class="ca-metric-num">15<em>%–22%</em></div>
+                            <div class="ca-metric-label">Commission tier · no hidden fees</div>
                         </div>
-                        <div class="ca-stat-item">
-                            <div class="ca-stat-number">50+</div>
-                            <div class="ca-stat-label">Countries Reached</div>
+                        <div class="ca-metric" data-reveal="" data-reveal-delay="4">
+                            <div class="ca-metric-num">24<em>h</em></div>
+                            <div class="ca-metric-label">Response on appraisal requests</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CTA Section -->
+            <!-- VALUES (differentiators) -->
+            <section class="ca-section ca-section-light">
+                <div class="ca-container">
+                    <div class="ca-page-head" data-reveal="">
+                        <span class="ca-eyebrow">What you actually get</span>
+                        <h2>Four reasons owners come back.</h2>
+                    </div>
+                    <div class="ca-values">
+                        <div class="ca-value" data-reveal="" data-reveal-delay="1">
+                            <div class="ca-value-num">i.</div>
+                            <div>
+                                <h4>Industry specialists, not generalists</h4>
+                                <p>Our team has spent 15+ years on factory floors. We know the difference between a tired CNC and one with another decade of life — and we price accordingly.</p>
+                            </div>
+                        </div>
+                        <div class="ca-value" data-reveal="" data-reveal-delay="2">
+                            <div class="ca-value-num">ii.</div>
+                            <div>
+                                <h4>One transparent commission</h4>
+                                <p>A flat tier on the sold price. No listing fee, no inspection fee, no payout fee. Net amount is computed and shown live in your portal.</p>
+                            </div>
+                        </div>
+                        <div class="ca-value" data-reveal="" data-reveal-delay="3">
+                            <div class="ca-value-num">iii.</div>
+                            <div>
+                                <h4>Multi-channel exposure</h4>
+                                <p>Every item is published on our marketplace and pushed to eBay simultaneously. One submission, two audiences.</p>
+                            </div>
+                        </div>
+                        <div class="ca-value" data-reveal="" data-reveal-delay="4">
+                            <div class="ca-value-num">iv.</div>
+                            <div>
+                                <h4>Real-time owner portal</h4>
+                                <p>Log in and see status, views, offers, sale price, commission, and your wallet balance. Same data we see, no spin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
             <section class="ca-section">
-                <div class="ca-container">
-                    <div class="ca-cta-box">
-                        <h2>Ready to Get Started?</h2>
-                        <p>Join hundreds of satisfied equipment owners who trust us with their machinery consignment.</p>
-                        <div class="ca-cta-buttons">
-                            <a href="/contact" class="ca-btn ca-btn-primary ca-btn-large">Contact Us Today</a>
-                            <a href="/services" class="ca-btn ca-btn-secondary ca-btn-large">View Our Services</a>
+                <div class="ca-narrow">
+                    <div class="ca-page-head" data-reveal="">
+                        <span class="ca-eyebrow">FAQ</span>
+                        <h2>Common questions from owners.</h2>
+                    </div>
+                    <div class="ca-faq" data-reveal="" data-reveal-delay="1">
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>What does it cost to list with you?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">Nothing upfront. We charge a tiered commission on the final sale price — and only when the equipment actually sells. No listing fee, no photography fee, no payout fee.</div>
+                            </div>
+                        </div>
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>How quickly will my equipment sell?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">It depends on the asset, but our median time-to-first-offer is fourteen days. We give you a realistic timeline at the appraisal stage.</div>
+                            </div>
+                        </div>
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>Where does the equipment have to be?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">Either on your site (we come to you for inspection and photography) or shipped to our warehouse. We coordinate the logistics either way.</div>
+                            </div>
+                        </div>
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>What if it doesn't sell?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">No cost to you. We re-price, re-list, or return the equipment at agreed terms. Owners always retain ownership until sale clears.</div>
+                            </div>
+                        </div>
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>When and how do I get paid?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">Net amount is auto-credited to your CondorAutomation wallet the moment payment clears escrow. Withdraw to bank by request, or apply credit to future purchases.</div>
+                            </div>
+                        </div>
+                        <div class="ca-faq-item">
+                            <button type="button" class="ca-faq-q">
+                                <span>Can I track everything in real time?</span>
+                                <span class="ca-faq-icon"></span>
+                            </button>
+                            <div class="ca-faq-a">
+                                <div class="ca-faq-a-inner">Yes — every owner gets a private portal showing item status, live views and watchers, sale price, commission, and wallet balance.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- CTA -->
+            <section class="ca-cta ca-section-elev">
+                <div class="ca-narrow" data-reveal="">
+                    <span class="ca-cta-mark">N° 004</span>
+                    <h2>Ready to <em>move equipment?</em></h2>
+                    <p class="ca-cta-sub">Tell us what you have. We respond within twenty-four hours with an indicative valuation and a target sale window.</p>
+                    <div class="ca-row" style="justify-content: center;">
+                        <a href="/contact" class="ca-btn ca-btn-primary ca-btn-arrow">Request appraisal</a>
+                    </div>
+                </div>
+            </section>
+
         </t>
     </template>
 </odoo>

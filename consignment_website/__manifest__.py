@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Consignment Website',
-    'version': '17.0.1.0.0',
+    'version': '17.0.2.0.0',
     'category': 'Website',
-    'summary': 'Industrial consignment platform portfolio website',
+    'summary': 'Industrial consignment platform — editorial luxury frontend',
     'description': """
         CondorAutomation Portfolio Website
         ===================================
-        Professional industrial consignment platform website
+        Editorial dark + champagne luxury frontend.
         - Homepage
-        - Why Choose Us
         - Services
-        - About Us
+        - Approach (Why Choose Us)
+        - About
         - Contact
     """,
     'author': 'CondorAutomation',
@@ -31,9 +31,9 @@
     'assets': {
         'web.assets_frontend': [
             'consignment_website/static/src/css/industrial_theme.css',
+            'consignment_website/static/src/js/motion.js',
             'consignment_website/static/src/js/language_toggle.js',
             'consignment_website/static/src/js/translations.js',
-            'consignment_website/static/src/js/carousel.js',
         ],
     },
     'installable': True,
